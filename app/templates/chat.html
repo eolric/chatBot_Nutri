@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NutriBot</title>
+</head>
+<body>
+    <h1>NutriBot 🤖</h1>
+    <div id="chat">
+    <!-- Debug: Muestra el tipo de datos recibidos -->
+        <p>Debug: Tipo de 'mensajes': {{ mensajes.__class__.__name__ }}</p>
+        <p>Debug: Primer elemento: {{ mensajes[0] if mensajes else 'Vacío' }}</p>
+
+    <!-- Iteración normal -->
+        {% for contenido, respuesta in mensajes %}
+            <p><strong>Tú:</strong> {{ contenido }}</p>
+            <p><strong>NutriBot:</strong> {{ respuesta }}</p>
+        {% endfor %}
+    </div>
+    
+    <form action="/chat" method="POST">
+        <input type="text" name="user_message" placeholder="Escribe tu pregunta...">
+        <button type="submit">Enviar</button>
+    </form>
+</body>
+</html>
